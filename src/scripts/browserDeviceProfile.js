@@ -25,7 +25,7 @@ function canPlayHevc(videoTestElement, options) {
 
 function canPlayAv1(videoTestElement) {
     if (browser.tizenVersion >= 5.5 || browser.web0sVersion >= 5) {
-        return true;
+        return false;
     }
 
     // av1 main level 5.3
@@ -189,7 +189,7 @@ function canPlayAudioFormat(format) {
 
 function testCanPlayMkv(videoTestElement) {
     if (browser.tizen || browser.web0s) {
-        return true;
+        return false;
     }
 
     if (videoTestElement.canPlayType('video/x-matroska').replace(/no/, '')
@@ -293,7 +293,7 @@ function getDirectPlayProfileForVideoContainer(container, videoAudioCodecs, vide
             supported = browser.tizen;
             break;
         case 'mov':
-            supported = browser.safari || browser.tizen || browser.web0s || browser.chrome || browser.edgeChromium || browser.edgeUwp;
+            supported = browser.safari || browser.web0s || browser.chrome || browser.edgeChromium || browser.edgeUwp;
             videoCodecs.push('h264');
             break;
         case 'm2ts':
